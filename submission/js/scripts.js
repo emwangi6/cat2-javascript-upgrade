@@ -34,3 +34,30 @@ products.forEach(function(product) {
 
     productContainer.appendChild(card);
 });
+
+const input= document.getElementById("product-input");
+const button = document.getElementById("add-button");
+const list= document.getElementById("product-list");
+
+button.addEventListener("click",function(){
+    const newProduct = input.value;
+    if(newProduct === ""){
+        alert("Kindly Enter a Service");
+        return;
+    }
+    
+    const listItem = document.createElement("li");
+    listItem.textContent = newProduct;
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    listItem.appendChild(removeButton);
+    removeButton.addEventListener("click",function(){
+        listItem.remove();
+
+    });
+    list.appendChild(listItem);
+
+    input.value = "";
+});
+
+//Feature 3:Form Handling with validation Feedback
