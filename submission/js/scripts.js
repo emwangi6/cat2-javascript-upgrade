@@ -61,3 +61,24 @@ button.addEventListener("click",function(){
 });
 
 //Feature 3:Form Handling with validation Feedback
+let submitbtn = document.querySelector("#InfoForm button");
+let InfOutput = document.querySelector("#InfoOutput");
+let InfForm = document.querySelector("#InfoForm");
+
+InfForm.addEventListener("submit",event =>{
+    event.preventDefault();
+
+    const name = document.querySelector("#name");
+    const email = document.querySelector("#email");
+   
+    if (name.value.trim() === "" || email.value.trim() === "") {
+        InfOutput.textContent = "Please fill out both fields.";
+    }else{
+
+    InfOutput.innerHTML=
+    "<p>Name:"+name.value+"</p>"+
+    "<p>Email:"+email.value+"</p>"
+    name.value="";
+    email.value ="";
+    }
+})
