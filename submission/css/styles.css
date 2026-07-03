@@ -110,3 +110,10 @@ img{
 section{
   padding-top:50px;
 }
+#bannertext {
+  display: none;
+}
+
+#bannertext.show {
+  display: block;
+}
