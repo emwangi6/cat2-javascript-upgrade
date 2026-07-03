@@ -23,7 +23,7 @@ const products = [
 
 const productContainer = document.getElementById("product-container");
 
-products.forEach(function(product) {
+products.forEach(function (product) {
     const card = document.createElement("div");
     card.classList.add("service-card");
 
@@ -35,23 +35,23 @@ products.forEach(function(product) {
     productContainer.appendChild(card);
 });
 
-const input= document.getElementById("product-input");
+const input = document.getElementById("product-input");
 const button = document.getElementById("add-button");
-const list= document.getElementById("product-list");
+const list = document.getElementById("product-list");
 
-button.addEventListener("click",function(){
+button.addEventListener("click", function () {
     const newProduct = input.value;
-    if(newProduct === ""){
+    if (newProduct === "") {
         alert("Kindly Enter a Service");
         return;
     }
-    
+
     const listItem = document.createElement("li");
     listItem.textContent = newProduct;
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
     listItem.appendChild(removeButton);
-    removeButton.addEventListener("click",function(){
+    removeButton.addEventListener("click", function () {
         listItem.remove();
 
     });
@@ -64,21 +64,36 @@ button.addEventListener("click",function(){
 let submitbtn = document.querySelector("#InfoForm button");
 let InfOutput = document.querySelector("#InfoOutput");
 let InfForm = document.querySelector("#InfoForm");
+const name = document.querySelector("#name");
+const email = document.querySelector("#email");
+window.addEventListener("load", () => {
+    const savedData = JSON.parse(localStorage.getItem("formData"));
 
-InfForm.addEventListener("submit",event =>{
+    if (savedData) {
+        InfOutput.innerHTML =
+            "<p>Name: " + savedData.name + "</p>" +
+            "<p>Email: " + savedData.email + "</p>";
+    }
+});
+
+InfForm.addEventListener("submit", event => {
     event.preventDefault();
 
-    const name = document.querySelector("#name");
-    const email = document.querySelector("#email");
-   
+
+
     if (name.value.trim() === "" || email.value.trim() === "") {
         InfOutput.textContent = "Please fill out both fields.";
-    }else{
+    } else {
+        const formData = {
+            name: name.value,
+            email: email.value
+        }
+        localStorage.setItem("formData", JSON.stringify(formData));
 
-    InfOutput.innerHTML=
-    "<p>Name:"+name.value+"</p>"+
-    "<p>Email:"+email.value+"</p>"
-    name.value="";
-    email.value ="";
+        InfOutput.innerHTML =
+            "<p>Name:" + name.value + "</p>" +
+            "<p>Email:" + email.value + "</p>"
+        name.value = "";
+        email.value = "";
     }
 })
