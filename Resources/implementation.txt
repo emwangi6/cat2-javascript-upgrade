@@ -1,0 +1,59 @@
+Implementation Notes
+1. Loop-rendered dynamic content
+
+In this feature I stored all the products
+inside a JavaScript array of objects.
+
+I used forEach() to go through each products
+and display it on the webpage.
+
+
+2. Dynamically add & remove elements
+
+In this feature I allowed users to add new
+products to their  wishlist.
+
+I used createElement() and appendChild()
+to create new list items.
+
+Each product also gets its own Remove button.
+
+When the Remove button is clicked,
+remove() deletes that product from the list.
+
+
+3. Form handling with validation feedback
+
+In this feature I used an input box and
+button to receive user input.
+
+I checked whether the input was empty.
+
+If the input was empty,
+an alert message was displayed.
+
+
+
+
+4. Persistent state with localStorage
+
+In this feature I saved the user's details
+using localStorage.
+
+I used JSON.stringify() to save the array.
+
+I used JSON.parse() to load the saved data.
+
+The wishlist remains available even after
+the webpage is refreshed or reopened.
+
+
+5. Click-to-reveal on your banner
+
+In this feature I made the banner clickable.
+
+When the banner is clicked,
+extra information is shown or hidden.
+
+I used classList.toggle() to switch
+between showing and hiding the caption.
